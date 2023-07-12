@@ -1,1 +1,35 @@
+# Backup database from server
 
+`mysqldump --host=127.0.0.1 --port=3307 -u root -p iecenter_db -r iecenter.bak.sql`
+//สำรองข้อมูล iecenter_db ไป .bak
+
+# Setting up (Local)
+
+- Create `.env` file
+- Create `./uplaods` folder
+- `docker network create iecenter_net`
+- Extract `./html/_folder.zip`
+- Run once so that we have a database running
+
+  - `docker-compose -f docker-compose-dev.yml up -d`
+  - `mysql --host=127.0.0.1 --port=3307 -u root -p iecenter_db -e "source ./backup_db/iecenter.bak.sql"`
+
+- Login to dockerhub form command line (`iecmu`)
+  - `docker login`
+
+# Development
+
+- `docker-compose -f docker-compose-dev.yml up -d`
+
+# Test
+
+- `docker-compose -f docker-compose-test.yml up -d --force-recreate --build`
+
+# Deployment
+
+- `docker build -t iecmu/iecenter_php:latest .`
+- `  `
+
+# On server
+
+- `./run.sh`
