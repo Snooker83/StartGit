@@ -1,0 +1,8 @@
+<?php 
+     echo "";
+?>
+แทรก php ไประหว่าง โปรเจค เปิด/ปิด tag PHP
+
+#1 เปลี่ยนข้อความเป็น พิมพ์ใหญ่ เล็ก ทั้งหมด
+echo strtoupper($text);
+echo strtolower($text);
